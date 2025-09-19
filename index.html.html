@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sad Love Letter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      font-family: "Georgia", serif;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .letter-container {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 600px;
+      text-align: left;
+      box-shadow: 0 0 20px rgba(255, 0, 100, 0.6);
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #ff4d6d;
+      font-family: "Cursive";
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 12px;
+      opacity: 0;
+      animation: fadeInText 2s forwards;
+    }
+
+    p:nth-child(2) { animation-delay: 2s; }
+    p:nth-child(3) { animation-delay: 4s; }
+    p:nth-child(4) { animation-delay: 6s; }
+    p:nth-child(5) { animation-delay: 8s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInText {
+      to { opacity: 1; }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="letter-container">
+    <h2>To My MUMU</h2>
+    <p>I don’t even know how to start this letter, but I guess the truth is that I miss you. Life feels a little emptier without you in it. I catch myself remembering the small things—your laugh, the way you’d look at me when words weren’t needed, the little moments we shared that felt so ordinary back then but now mean everything.</p>
+    <p>I know I made mistakes, and I know I can’t change the past. But I do think about how things could have been if I had done better, if we had fought harder for each other. It hurts to realize that someone who was once my whole world is now just a memory I carry.</p>
+    <p>I don’t expect anything from this letter. I’m not asking you to come back. I just wanted you to know that I still care, and that losing you is something I’ll probably always regret. You’ll always be a part of me, even if it’s just as the person who once made me feel the happiest I’ve ever been.</p>
+    <p>Take care of yourself. I hope you find the kind of happiness we couldn’t hold on to.</p>
+    <p>– YOURS ANKUJ</p>
+  </div>
+
+  <script>
+    // Generate floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 800);
+  </script>
+
+</body>
+</html>
